@@ -1,4 +1,4 @@
-# Debian
+# Adicionando a chave do repositório do Spotify
 - name: Adicionar a chave para o Spotify - Linux Debian 9
   apt_key:
     keyserver: keyserver.ubuntu.com
@@ -6,14 +6,13 @@
   when: ansible_os_family == 'Debian'
 
 
-# Debian 9
+# Adicionando o repositório do Spotify em si
 - name: Adicionar repositório Spotify - Linux Debian 9
   apt_repository:
     repo: deb http://repository.spotify.com stable non-free
   when: ansible_os_family == 'Debian'
 
-# Debian
-
+# Instalando o pacote spotify-client
 - name: Instalar os pacotes para o Spotify
   apt: name=spotify-client state=latest
   when: ansible_os_family == 'Debian'
